@@ -1,0 +1,72 @@
+Part 3: Functional Dependency Theory
+
+a.  R(A,B,C,D,E) with functional dependencies D → B, CE → A
+A+ = A
+B+ = B
+C+ = C
+D+ = BD because D → B
+E+ = E
+CE+ = CEA because CE → A
+CED is the super key
+D → B violates BCNF, D is not a superkey for R
+
+Decompose R1:
+R1(D, B) Only FD is D → B, it's in BCNF
+R2(C,E,A,D) D → B doesn't apply, CE → A violates BCNF, 
+CE is not a superkey for R
+
+Decompose R2:
+R3(C,E,A) key = CE Only FD is CE → A, it's in BCNF
+R4(C,E,D) key = CED No FD, it's in BCNF
+
+Final results:
+R1(D, B)
+R3(C,E,A)
+R4(C,E,D)
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+b. S(A,B,C,D,E) with functional dependencies A → E, BC → A, DE → B
+A+ = AE
+B+ = B
+C+ = C
+D+ = D
+E+ = E
+BC+ = AEBC
+DE+ = BDE
+Superkey is BCD
+A → E violates BCNF, A is not a superkey for S
+
+Decompose S1:
+S1(A,E) Only FD is A → E, it's in BCNF
+
+Decompose S2:
+S2(A,B,C) only FD is BC → A, it's in BCNF
+
+Decompose S3:
+S3(B,C,D)
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+c. All subsets of {A,B,C,D} are closed
+A+ = A
+B+ = B
+C+ = C
+D+ = D
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+d.(5 points) The only closed subsets of {A,B,C,D} are {} and {A,B,C,D}
+
+A+ = B
+B+ = C
+C+ = D
+D+ = A
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+e. The only closed subsets of {A,B,C,D} are {}, {B,C}, and {A,B,C,D}
+
+A+ = B
+B+ = A
+C+ = ABC
+D+ = BCD
